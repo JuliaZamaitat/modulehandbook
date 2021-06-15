@@ -1,4 +1,7 @@
 class Course < ApplicationRecord
+  extend FriendlyId
+  friendly_id :code, use: [:slugged, :finders]
+
   include AASM
   has_many :comments, as: :commentable
 

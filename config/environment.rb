@@ -13,7 +13,7 @@ ActionMailer::Base.smtp_settings = {
   password: ENV['SMTP_PASSWORD'],
   authentication: :login,
   enable_starttls_auto: true
-  #:domain         => 'module-handbook.heroku.com',
+  #:domain         => 'modulehandbook-fork.heroku.com',
 }
 
 # Initialize the Rails application.
