@@ -18,6 +18,10 @@ users = [
 ]
 
 User.destroy_all
+Course.destroy_all
+Program.destroy_all
+CourseCourses.destroy_all
+CourseProgram.destroy_all
 users.each do |u|
   user = User.create(email: u[0], password: 'geheim12', password_confirmation: 'geheim12', approved: true, confirmed_at: DateTime.now, role: u[1])
   puts "created User #{user.email} as #{user.role}"
@@ -86,5 +90,29 @@ courses.each do |a|
                     ects: a[6].strip.to_i)
   cp = CourseProgram.create(course: c, program: imib,
                             semester: a[0],
-                            required: a[3].strip)
+                            required: a[3].strip)       
 end
+
+b21 = Course.find_by(code: "B21").id
+puts b21
+wtat1 = Course.find_by(code: "WTAT1").id
+puts wtat1
+
+
+
+cc = CourseCourses.create(course_parent_id: b21, 
+                      course_child_id:  wtat1, 
+                      required: "elective" )
+
+cc.errors.details.each do |e|
+  puts e
+end
+
+                      
+# CourseCourses.create(course_parent_id: b21, 
+#                     course_child_id:  Course.find_by(code: "VCAT1").id, 
+#                     required: "elective" ) 
+
+# CourseCourses.create(course_parent_id:  b21, 
+#                       course_child_id:  Course.find_by(code: "GT2").id, 
+#                       required: "elective" )                                                

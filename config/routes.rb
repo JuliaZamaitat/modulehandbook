@@ -9,6 +9,16 @@ Rails.application.routes.draw do
 
   get 'programs/:id/overview', to: 'programs#overview', as: 'program_overview'
 
+
+  # API Endpoints
+  get ':id/', to: 'programs#show'
+  get ':id/:stupo', to: 'programs#show'
+
+  get ':program_id/:stupo/:id', to: 'courses#show'
+  get ':program_id/:stupo/:id/:semester', to: 'courses#show'
+
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   # JSON Exporte
