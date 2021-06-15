@@ -100,6 +100,7 @@ class Course < ApplicationRecord
       end
     end
     data['programs'] = programs
+    data['course_connections'] = CourseConnection.where(parent_course_code: self.code).as_json
     data = data.as_json
     data
   end

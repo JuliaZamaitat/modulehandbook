@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Parent course code:</strong>
+  <%= @course_connection.parent_course_code %>
+</p>
+
+<p>
+  <strong>Child course code:</strong>
+  <%= @course_connection.child_course_code %>
+</p>
+
+<p>
+  <strong>Required:</strong>
+  <%= @course_connection.required %>
+</p>
+
+<%= link_to 'Edit', edit_course_connection_path(@course_connection) %> |
+<%= link_to 'Back', course_connections_path %>

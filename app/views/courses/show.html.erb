@@ -45,6 +45,16 @@
 
 <hr/>
 
+<p>child courses</p>
+<% @child_courses.each do |cc| %>
+  <%= link_to cc.child_course_code, course_path(Course.find_by(code: cc.child_course_code))%>
+  <% end %>
+
+  <p>parent courses</p>
+<% @parent_courses.each do |cc| %>
+  <%= link_to cc.parent_course_code, course_path(Course.find_by(code: cc.parent_course_code))%>
+  <% end %>
+
 <%= form_with(model: @course, local: true) do |form| %>
 <%= render 'course_template', course: @course, editing: false, form: form %>
 <% end %>

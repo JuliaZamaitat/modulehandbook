@@ -20,7 +20,7 @@ users = [
 User.destroy_all
 Course.destroy_all
 Program.destroy_all
-CourseCourses.destroy_all
+CourseConnection.destroy_all
 CourseProgram.destroy_all
 users.each do |u|
   user = User.create(email: u[0], password: 'geheim12', password_confirmation: 'geheim12', approved: true, confirmed_at: DateTime.now, role: u[1])
@@ -93,26 +93,24 @@ courses.each do |a|
                             required: a[3].strip)       
 end
 
-b21 = Course.find_by(code: "B21").id
-puts b21
-wtat1 = Course.find_by(code: "WTAT1").id
-puts wtat1
+b21 = Course.find_by(code: "B21").code
 
 
 
-cc = CourseCourses.create(course_parent_id: b21, 
-                      course_child_id:  wtat1, 
-                      required: "elective" )
 
-cc.errors.details.each do |e|
-  puts e
-end
+
+CourseConnection.create(parent_course_code: b21, 
+                            child_course_code:  Course.find_by(code: "WTAT1").code, 
+                            required: "elective" )
+
+
 
                       
-# CourseCourses.create(course_parent_id: b21, 
-#                     course_child_id:  Course.find_by(code: "VCAT1").id, 
-#                     required: "elective" ) 
-
-# CourseCourses.create(course_parent_id:  b21, 
-#                       course_child_id:  Course.find_by(code: "GT2").id, 
-#                       required: "elective" )                                                
+CourseConnection.create(parent_course_code: b21, 
+                            child_course_code:  Course.find_by(code: "VCAT2").code, 
+                            required: "elective" )
+                            
+                                        
+CourseConnection.create(parent_course_code: b21, 
+                            child_course_code:  Course.find_by(code: "WT2").code, 
+                            required: "elective" )

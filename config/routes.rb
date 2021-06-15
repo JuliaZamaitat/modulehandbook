@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :course_connections
   devise_for :users
   root 'welcome#index'
   resources :users, only: %i[index show edit update]
@@ -16,6 +17,10 @@ Rails.application.routes.draw do
 
   get ':program_id/:stupo/:id', to: 'courses#show'
   get ':program_id/:stupo/:id/:semester', to: 'courses#show'
+
+
+  get ':program_id/:stupo/:course_id/:id', to: 'courses#show'
+  get ':program_id/:stupo/:course_id/:id/:semester', to: 'courses#show'
 
 
 

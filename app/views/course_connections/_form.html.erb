@@ -1,0 +1,32 @@
+<%= form_with(model: course_connection, local: true) do |form| %>
+  <% if course_connection.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(course_connection.errors.count, "error") %> prohibited this course_connection from being saved:</h2>
+
+      <ul>
+        <% course_connection.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :parent_course_code %>
+    <%= form.text_area :parent_course_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :child_course_code %>
+    <%= form.text_area :child_course_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :required %>
+    <%= form.text_area :required %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
