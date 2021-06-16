@@ -55,10 +55,10 @@ courses = [
   [3, 'B16 ', ' 2. Fremdsprache                      ', 'required', ' WP  ', ' Ü    ', ' 4   ', ' 4'],
   [3, 'B17 ', ' Computergrafik                       ', 'required', ' P   ', ' SL/Ü ', ' 2/2 ', ' 5'],
   [3, 'B18 ', ' 3D-Design                            ', 'required', ' P   ', ' Ü    ', ' 2   ', ' 5'],
-  [4, 'B19   ', ' Internationale   Medienwirtschaft  und  Kommunikation ', 'required', ' P   ', ' SL/Ü ', ' 2/2 ', ' 5'],
-  [4, 'B20   ', ' Praxisphase 1:  Fachpraktikum im  Ausland             ', 'required', ' P   ', '      ', '     ', ' 25'],
-  [4, 'B20.1 ', ' Auswertung  von Erfahrungen am Praxisplatz            ', 'required', ' EL  ', ' Ü    ', ' 2   ', '  0'],
-  [4, 'B20.2 ', ' Fachpraktikum                                         ', 'required', '     ', '      ', '     ', '   0'],
+  [4, 'B19   ', ' Internationale   Medienwirtschaft  und  Kommunikation ', 'required', ' SL/Ü ', ' 2/2 ', ' 5'],
+  [4, 'B20   ', ' Praxisphase 1:  Fachpraktikum im  Ausland             ', 'required', '      ', '     ', ' 25'],
+  [4, 'B20.1 ', ' Auswertung  von Erfahrungen am Praxisplatz            ', 'required', ' Ü    ', ' 2   ', '  0'],
+  [4, 'B20.2 ', ' Fachpraktikum                                         ', 'required', '      ', '     ', '   0'],
   [5, 'B21   ', ' Wahlpflichtmodul 1          ', 'required', ' WP  ', ' SL/Ü ', ' 2/2 ', ' 5'],
   [5, 'B22   ', ' Wahlpflichtmodul 2          ', 'required', ' WP  ', ' SL/Ü ', ' 2/2 ', ' 5'],
   [5, 'B23   ', ' Wahlpflichtmodul 3          ', 'required', ' WP  ', ' SL/Ü ', ' 2/2 ', ' 5'],
@@ -70,15 +70,17 @@ courses = [
   [6, 'B28 ', ' AWE  WP                       ', 'required', ' SL  ', '      ', ' 2   ', ' 2'],
   [6, 'B29 ', ' Bachelorarbeit                ', 'required', ' P   ', '      ', '     ', ' 12'],
   [6, 'B30 ', ' Bachelorseminar/Kolloquium    ', 'required', ' P   ', ' Ü    ', ' 1   ', ' 4'],
-  [0, 'GTAT1 ', ' Game  Technology  &  Interactive  Systems  – Aktuelle  Themen  1 ', 'elective', 'SL/Ü', ' 2/2  ', ' 5'],
-  [0, 'VCAT1 ', ' Visual  Computing  –  Aktuelle Themen 1                          ', 'elective', 'SL/Ü', ' 2/2  ', ' 5'],
-  [0, 'WTAT1 ', ' Web Technology  –  Aktuelle Themen 1                             ', 'elective', 'SL/Ü', ' 2/2  ', ' 5'],
-  [0, 'GT2   ', ' Game  Engines                                                    ', 'elective', 'SL/Ü', ' 2/2      ', ' 5'],
-  [0, 'VC2   ', ' Bildanalyse                                                      ', 'elective', 'SL/Ü', ' 2/2      ', ' 5'],
-  [0, 'WT2   ', ' Usability                                                        ', 'elective', 'SL/Ü', ' 2/2      ', ' 5'],
-  [0, 'GTAT2 ', ' Game Technology & Interactive Systems – Aktuelle Themen 2        ', 'elective', 'SL/Ü', ' 2/2      ', ' 5'],
-  [0, 'VCAT2 ', ' Visual  Computing – Aktuelle Themen 2                            ', 'elective', 'SL/Ü', ' 2/2      ', ' 5'],
-  [0, 'WTAT2 ', ' Web  Technology – Aktuelle Themen2                               ', 'elective', 'SL/Ü', ' 2/2      ', ' 5']
+  [0, 'GT1 ', ' AI for Games ', 'elective', 'SL/Ü', '', ' 2/2  ', ' 5', 'SoSe'],
+  [0, 'VC1 ', ' Bild- und Videokompression ', 'elective', 'SL/Ü', ' 2/2  ', ' 5', 'SoSe'],
+  [0, 'GTAT1 ', ' Game  Technology  &  Interactive  Systems  – Aktuelle  Themen  1 ', 'elective', 'SL/Ü', '',' 2/2  ', ' 5', 'SoSe'],
+  [0, 'VCAT1 ', ' Visual  Computing  –  Aktuelle Themen 1                          ', 'elective', 'SL/Ü', '',' 2/2  ', ' 5', 'SoSe'],
+  [0, 'WTAT1 ', ' Web Technology  –  Aktuelle Themen 1                             ', 'elective', 'SL/Ü', '',' 2/2  ', ' 5', 'SoSe'],
+  [0, 'GT2   ', ' Game  Engines                                                    ', 'elective', 'SL/Ü', '',' 2/2      ', ' 5', 'WiSe'],
+  [0, 'VC2   ', ' Bildanalyse                                                      ', 'elective', 'SL/Ü', '',' 2/2      ', ' 5', 'WiSe'],
+  [0, 'WT2   ', ' Usability                                                        ', 'elective', 'SL/Ü', '', ' 2/2      ', ' 5', 'WiSe'],
+  [0, 'GTAT2 ', ' Game Technology & Interactive Systems – Aktuelle Themen 2        ', 'elective', 'SL/Ü', '',' 2/2      ', ' 5', 'WiSe'],
+  [0, 'VCAT2 ', ' Visual  Computing – Aktuelle Themen 2                            ', 'elective', 'SL/Ü', '',' 2/2      ', ' 5', 'WiSe'],
+  [0, 'WTAT2 ', ' Web  Technology – Aktuelle Themen2                               ', 'elective', 'SL/Ü', '',' 2/2      ', ' 5', 'WiSe'],
 ]
 
 courses.each do |a|
@@ -87,7 +89,8 @@ courses.each do |a|
   c = Course.create(code: a[1].strip,
                     name: a[2].strip,
                     methods: "#{a[4].strip} #{a[5].strip}",
-                    ects: a[6].strip.to_i)
+                    ects: a[6].strip.to_i,
+                    frequency: !a[8].nil? ? (a[8].strip) : nil)
   cp = CourseProgram.create(course: c, program: imib,
                             semester: a[0],
                             required: a[3].strip)       

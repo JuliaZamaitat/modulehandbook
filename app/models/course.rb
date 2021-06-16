@@ -49,6 +49,15 @@ class Course < ApplicationRecord
   has_many :course_programs, dependent: :destroy
   has_many :programs, through: :course_programs
 
+  FREQUENCY = %i[WiSe SoSe WiSeAndSoSe].freeze
+
+  after_initialize :set_default_frequency, if: :new_record?
+
+
+  def set_default_frequency
+    self.frequency ||= :WiSeAndSoSe
+  end
+
   def select_name
     "#{name} (#{code})"
   end
