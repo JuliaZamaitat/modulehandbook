@@ -23,7 +23,6 @@ Rails.application.routes.draw do
   get ':program_id/:stupo/:course_id/:id/:semester', to: 'courses#show'
 
 
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   # JSON Exporte

@@ -13,17 +13,17 @@
 
   <div class="field">
     <%= form.label :parent_course_code %>
-    <%= form.text_area :parent_course_code %>
+    <%= form.collection_select(:parent_course_code, Course.all, :code, :select_name) %>
   </div>
 
   <div class="field">
     <%= form.label :child_course_code %>
-    <%= form.text_area :child_course_code %>
+    <%= form.collection_select(:child_course_code, Course.all, :code, :select_name) %>
   </div>
 
   <div class="field">
     <%= form.label :required %>
-    <%= form.text_area :required %>
+    <%=  form.select(:required,[['mandatory','mandatory'],['required','required'],['elective','elective']])%>
   </div>
 
   <div class="actions">
