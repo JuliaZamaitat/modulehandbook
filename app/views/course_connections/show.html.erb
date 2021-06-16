@@ -1,13 +1,20 @@
+<h3>Connection between two courses</h3>
 <p id="notice"><%= notice %></p>
+<% if can? :edit, @course_connection %>
+<%= link_to 'Edit', edit_course_connection_path(@course_connection) %> ,
+<% end %>
+<%= link_to 'Back to Course Conenctions', course_connections_path %>
+
+<hr>
 
 <p>
   <strong>Parent course code:</strong>
-  <%= @course_connection.parent_course_code %>
+  <%= link_to @course_connection.parent_course_code, Course.find_by(code: @course_connection.parent_course_code)  %>
 </p>
 
 <p>
   <strong>Child course code:</strong>
-  <%= @course_connection.child_course_code %>
+  <%= link_to @course_connection.child_course_code, Course.find_by(code: @course_connection.child_course_code) %>
 </p>
 
 <p>
@@ -15,5 +22,4 @@
   <%= @course_connection.required %>
 </p>
 
-<%= link_to 'Edit', edit_course_connection_path(@course_connection) %> |
-<%= link_to 'Back', course_connections_path %>
+
