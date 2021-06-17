@@ -29,13 +29,8 @@ end
 user = User.create(email: 'unapproved@mail.de', password: 'geheim12', password_confirmation: 'geheim12', approved: false)
 puts "created unapproved User #{user.email}"
 
-# CourseProgram.destroy_all
-# Program.destroy_all
-# Course.destroy_all
 
 imib = Program.create(name: 'Internationale Medieninformatik', code: 'IMI-B', degree: 'Bachelor', ects: 180)
-
-# ALT [Semester, Code, Name, required, methods,methods, sws, ect , frequency]
 
 # NEU [Semester, Code, Name, required, mission, ects, examination, objectives, contents, prerequisites, literature, methods, 
 # skills_knowledge_understanding, skills_intellectual, skills_practical, skills_general, lectureHrs, labHrs, tutorialHrs,
