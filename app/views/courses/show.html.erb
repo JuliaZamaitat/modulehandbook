@@ -46,7 +46,7 @@
 <hr/>
 
 <% if @child_courses.size != 0 %>
-  <h4>Can be completed by following child courses:</h4>
+  <h4>Can or must be completed with following child courses:</h4>
   <% @child_courses.each_with_index do |cc, index| %>
     <%= link_to cc.child_course_code, course_path(Course.find_by(code: cc.child_course_code))%>
   <% if index != (@child_courses.size - 1) %>
@@ -56,7 +56,7 @@
 <% end %>
 
 <% if @parent_courses.size != 0 %>
-  <h4>Can be booked for completing following parent courses:</h4>
+  <h4>Can or must be booked for completing following parent courses:</h4>
   <% @parent_courses.each_with_index do |cc, index| %>
      <%= link_to cc.parent_course_code, course_path(Course.find_by(code: cc.parent_course_code))%>
      <% if index != (@parent_courses.size - 1) %>
