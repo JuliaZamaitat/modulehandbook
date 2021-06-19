@@ -5,7 +5,9 @@ class ApplicationController < ActionController::Base
 
   private
   def authenticate_or_token
-    if request.headers["AUTH-TOKEN"] == ENV['DEVISE_SECRET_KEY'] || 'xyz'
+    puts "headers #{request.headers["AUTH-TOKEN"]}"
+    if request.headers["AUTH-TOKEN"] == (ENV['DEVISE_SECRET_KEY'] || 'xyz')
+      puts "here"
       @current_user =  User.create(email: 'reader@mail.de', password: 'geheim12', password_confirmation: 'geheim12', approved: true, confirmed_at: DateTime.now, role: :reader)
       return current_user
     end
