@@ -16,11 +16,12 @@ Rails.application.routes.draw do
   get ':id/:stupo', to: 'programs#show'
 
   get ':program_id/:stupo/:id', to: 'courses#show'
-  get ':program_id/:stupo/:id/:semester', to: 'courses#show'
-
+  get ':program_id/:stupo/:id/semester/:semester', to: 'courses#show'
 
   get ':program_id/:stupo/:course_id/:id', to: 'courses#show'
-  get ':program_id/:stupo/:course_id/:id/:semester', to: 'courses#show'
+  get ':program_id/:stupo/:course_id/:id/semester/:semester', to: 'courses#show'
+
+  
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
