@@ -88,6 +88,11 @@ class Course < ApplicationRecord
     course.tutorialHrs = data['tutorialHrs']
     course.equipment = data['equipment']
     course.room = data['room']
+    course.responsible_person = data['responsible_person']
+    puts "here"
+    puts course.responsible_person
+    course.frequency = data['frequency']
+
     course.save
     course
   end

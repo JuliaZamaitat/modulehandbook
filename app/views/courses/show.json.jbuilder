@@ -1,6 +1,4 @@
-json.partial! 'courses/course', course: @course
-
-
+json.merge! @course.attributes
 
 json.course_connections do
 
