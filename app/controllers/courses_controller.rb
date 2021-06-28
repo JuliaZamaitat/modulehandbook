@@ -13,8 +13,17 @@ class CoursesController < ApplicationController
   def show
     @programs = @course.programs.order(:name).pluck(:name, :id)
     @course_program = CourseProgram.new(course: @course)
-    @child_courses = CourseConnection.where(parent_course_code: @course.code)
-    @parent_courses = CourseConnection.where(child_course_code: @course.code)
+    
+    @child_courses_codes = CourseConnection.where(parent_course_code: @course.code)
+    @child_courses = []
+    @child_courses_codes.each do |c|
+      @child_courses.push(Course.find_by(code: c.child_course_code))
+    end
+    @parent_courses_codes = CourseConnection.where(child_course_code: @course.code)
+    @parent_courses = []
+    @parent_courses_codes.each do |c|
+      @parent_courses.push(Course.find_by(code: c.child_course_code))
+    end
     @comments_size = @course.comments.size
     @comments = @course.comments
     @comment = @course.comments.build(author: @current_user)
