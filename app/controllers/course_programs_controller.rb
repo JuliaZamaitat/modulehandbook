@@ -23,6 +23,29 @@ class CourseProgramsController < ApplicationController
   # GET /course_programs/1.json
   def show; end
 
+  def courseWithConnectionsInProgram
+    course = Course.friendly.find(params[:course_id])
+
+    child_courses_codes = CourseConnection.where(parent_course_code: course.code)
+    child_courses = []
+    child_courses_codes.each do |c|
+      child_courses.push(Course.find_by(code: c.child_course_code))
+    end
+    parent_courses_codes = CourseConnection.where(child_course_code: course.code)
+    parent_courses = []
+    parent_courses_codes.each do |c|
+      parent_courses.push(Course.find_by(code: c.child_course_code))
+    end
+   
+    program = Program.friendly.find(params[:program_id])
+    course_program = CourseProgram.find_by(course_id: course.id, program_id: program.id)
+
+    respond_to do |format|
+      format.json  { render :json => {course_program: course_program, 
+      course: course, child_courses:  child_courses, parent_courses: parent_courses }}
+     
+    end
+  end
   # GET /course_programs/new
   def new
     @course_program = CourseProgram.new

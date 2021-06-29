@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   get ':id/', to: 'programs#show'
   get ':id/:stupo', to: 'programs#show'
 
-  get ':program_id/:stupo/:id', to: 'courses#show'
-  get ':program_id/:stupo/:id/semester/:semester', to: 'courses#show'
+  get ':program_id/:stupo/:course_id', to: 'course_programs#courseWithConnectionsInProgram'
+  get ':program_id/:stupo/:course_id/semester/:semester', to: 'course_programs#courseWithConnectionsInProgram'
 
   get ':program_id/:stupo/:course_id/:id', to: 'courses#show'
   get ':program_id/:stupo/:course_id/:id/semester/:semester', to: 'courses#show'
