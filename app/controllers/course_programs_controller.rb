@@ -29,17 +29,8 @@ class CourseProgramsController < ApplicationController
   def courseWithConnectionsInProgram
     course = Course.friendly.find(params[:course_id])
 
-    child_courses_codes = CourseConnection.where(parent_course_code: course.code)
-    child_courses = []
-    child_courses_codes.each do |c|
-      child_courses.push(Course.find_by(code: c.child_course_code))
-    end
-    parent_courses_codes = CourseConnection.where(child_course_code: course.code)
-    parent_courses = []
-    parent_courses_codes.each do |c|
-      parent_courses.push(Course.find_by(code: c.child_course_code))
-    end
-   
+    child_courses = CourseConnection.where(parent_course_code: course.code)
+    parent_courses = CourseConnection.where(child_course_code: course.code)
     program = Program.friendly.find(params[:program_id])
     course_program = CourseProgram.find_by(course_id: course.id, program_id: program.id)
 
