@@ -29,14 +29,25 @@ class CourseProgramsController < ApplicationController
   def courseWithConnectionsInProgram
     course = Course.friendly.find(params[:course_id])
 
-    child_courses = CourseConnection.where(parent_course_code: course.code)
-    parent_courses = CourseConnection.where(child_course_code: course.code)
+    child_courses_codes = CourseConnection.where(parent_course_code: course.code)
+    child_courses = []
+    child_courses_codes.each do |c|
+      object = { course: Course.find_by(code: c.child_course_code), course_connection: c}
+      child_courses.push(object)
+    end
+    parent_courses_codes = CourseConnection.where(child_course_code: course.code)
+    parent_courses = []
+    parent_courses_codes.each do |c|
+      object = { course: Course.find_by(code: c.parent_course_code), course_connection: c}
+      parent_courses.push(object)
+    end
+   
     program = Program.friendly.find(params[:program_id])
     course_program = CourseProgram.find_by(course_id: course.id, program_id: program.id)
 
     respond_to do |format|
       format.json  { render :json => {course_program: course_program, 
-      course: course, child_courses:  child_courses, parent_courses: parent_courses }}
+      course: course, child_courses: child_courses, parent_courses: parent_courses }}
      
     end
   end
