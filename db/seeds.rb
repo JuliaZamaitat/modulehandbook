@@ -30,7 +30,7 @@ user = User.create(email: 'unapproved@mail.de', password: 'geheim12', password_c
 puts "created unapproved User #{user.email}"
 
 
-imib = Program.create(name: 'Internationale Medieninformatik', code: 'IMI-B', degree: 'Bachelor', ects: 180)
+imib = Program.create(name: 'Internationale Medieninformatik B', code: 'IMI-B', degree: 'Bachelor', ects: 180)
 
 # NEU [Semester, Code, Name, required, mission, ects, examination, objectives, contents, prerequisites, literature, methods, 
 # skills_knowledge_understanding, skills_intellectual, skills_practical, skills_general, lectureHrs, labHrs, tutorialHrs,
@@ -189,7 +189,7 @@ end
 # MASTER IMI
 
 
-imim = Program.create(name: 'Internationale Medieninformatik', code: 'IMI-M', degree: 'Master', ects: 120)
+imim = Program.create(name: 'Internationale Medieninformatik M', code: 'IMI-M', degree: 'Master', ects: 120)
 
 # NEU [Semester, Code, Name, required, mission, ects, examination, objectives, contents, prerequisites, literature, methods, 
 # skills_knowledge_understanding, skills_intellectual, skills_practical, skills_general, lectureHrs, labHrs, tutorialHrs,
