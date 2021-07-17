@@ -16,14 +16,9 @@ Rails.application.routes.draw do
   get ':id/:stupo', to: 'programs#show'
 
   get ':program_id/:stupo/:course_id', to: 'course_programs#courseWithConnectionsInProgram'
-  get ':program_id/:stupo/:course_id/semester/:semester', to: 'course_programs#courseWithConnectionsInProgram'
-
-  get ':program_id/:stupo/:course_id/:id', to: 'courses#show'
-  get ':program_id/:stupo/:course_id/:id/semester/:semester', to: 'courses#show'
+  get ':program_id/:stupo/:course_id/:semester', to: 'course_programs#courseWithConnectionsInProgram'
 
   
-
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   # JSON Exporte
